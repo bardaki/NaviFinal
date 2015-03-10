@@ -56,6 +56,8 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import org.apache.commons.httpclient.*;
+import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.params.HttpMethodParams;
 
 public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > implements LocationListener {
 	private static final HttpTransport HTTP_TRANSPORT = AndroidHttp.newCompatibleTransport();
@@ -107,7 +109,13 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 		// convert java object to JSON format,
 		// and returned as JSON formatted string
 //		
-		HttpClient httpClient = new HttpClient();
+		HttpClient client = new HttpClient();
+		GetMethod method = new GetMethod("http://naviserver.azurewebsites.net/api/Navigation/Get");
+		method.getParams().setParameter(HttpMethodParams.RETRY_HANDLER, new DefaultHttpMethodRetryHandler(3, false));
+		try{
+			int statusCode = client.executeMethod(method);			
+		}
+		catch(Exception e){}
 
 //	    try {
 //	        HttpPost request = new HttpPost("http://yoururl");
