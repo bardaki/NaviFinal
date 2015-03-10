@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="auto_complete">AutoComplete</string>
+    <string name="multi_auto_complete">Multi AutoComplete</string>
+    <string name="welcome">ברוך הבא</string>
+    <string name="start">מיקום נוכחי</string>
+    <string name="start_txt">התחל ניווט ב-</string>
+    <string name="addresses">בחר יעדים</string>
+    <string name="addresses_txt">עבור ב-</string>
+    <string name="end">יעד סיום</string>
+    <string name="endTitle">יעד סיום:   </string>
+    <string name="startTitle">התחלה: </string>
+    <string name="end_txt">סיים ניווט ב-</string>
+    <string name="title_activity_test_map">TestMapActivity</string>
+    <string name="title_activity_test_route">TestRoute</string>
+    <string name="title_activity_directions_maps_fragment">DirectionsMapsFragment</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_show_map">ShowMapActivity</string>
+    <string name="backToRoutes">Back To Routes</string>
+    <string name="startnav">חפש</string>
+    <string name="next">הבא</string>
+    <string name="back">הקודם</string>
+    <string name="remove">מחק כתובת מהרשימה</string>
+    <string name="timeText">שעה אחרונה להגעה: </string>
+    <string name="action_settings">הגדרות</string>
+    <string name="action_help">עזרה</string>
+    <string name="action_person">אישי</string>
+    <string name="action_favorits">מועדפים</string>
+    <string name="action_plane">תכנון מסלול</string>
+    <string name="action_map">מפה</string>
+    <string name="action_back">חזור</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_addresses">תכנון מסלול</string>
+    <string name="title_activity_end_address">EndAddressActivity</string>
+    <string name="title_activity_routs">מסלול אופטימלי</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_activity_address_edit"></string>
+    <string name="exit">יציאה</string>
+    <string name="home">חזור למסך הבית</string>
+    <string name="endNavigation">יעד אחרון</string>
+    <string name="finish">הניווט נגמר בהצלחה</string>
+    <string name="add">הוסף למועדפים</string>
+    <string name="delete">מחק הכל</string>
+    <string name="startnavfav">נווט</string>
+    <string name="removetxt">החלק ימינה/שמאלה על המסלול על מנת למחוק</string>
+    <string name="favoriteDetails">פרטי מסלול</string>
+    <string name="intermediate">נקודות ביניים: </string>
+
+    <color name="gray">#DCE1E1</color>
+    <color name="green">#00FF00</color>
+    <color name="red">#FF0000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="blue">#0000ff</color>
+    <color name="myblue">#00ABFF</color>
+
+    <string name="title_activity_favorites">FavoritesActivity</string>
+    <string name="title_activity_favorite_details">FavoriteDetailsActivity</string>
+
+</resources>

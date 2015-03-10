@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="bottom"
+    android:background="@drawable/customborder"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@+id/favoriteslistView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true" >
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/favoriteslistView"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp" >
+
+        <Button
+            android:id="@+id/action_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/ic_action_map"
+            android:onClick="mapClicked"
+            android:orderInCategory="0"
+            android:src="@drawable/ic_action_map"
+            android:text="@string/action_map"
+            android:textColor="@color/black"
+            android:textSize="8sp" />
+
+        <Button
+            android:id="@+id/action_plane"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/ic_action_split"
+            android:onClick="routesClicked"
+            android:orderInCategory="0"
+            android:src="@drawable/ic_action_split"
+            android:text="@string/action_plane"
+            android:textColor="@color/black"
+            android:textSize="8sp" />
+
+        <Button
+            android:id="@+id/action_favorits2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/myblue"
+            android:drawableTop="@drawable/ic_action_favorite"
+            android:orderInCategory="0"
+            android:src="@drawable/ic_action_favorite"
+            android:text="@string/action_favorits"
+            android:textColor="@color/black"
+            android:textSize="8sp" />
+
+        <Button
+            android:id="@+id/action_help2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/ic_action_help"
+            android:orderInCategory="0"
+            android:src="@drawable/ic_action_help"
+            android:text="@string/action_help"
+            android:textColor="@color/black"
+            android:textSize="8sp" />
+
+        <Button
+            android:id="@+id/action_settings2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/ic_action_settings"
+            android:src="@drawable/ic_action_settings"
+            android:text="@string/action_settings"
+            android:textColor="@color/black"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+</RelativeLayout>

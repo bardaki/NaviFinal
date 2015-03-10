@@ -1,0 +1,11 @@
+<!-- res/layout/list_item.xml -->
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txtAddress"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right"
+    android:textSize="15sp"
+    android:textStyle="bold|italic"
+    android:padding="8dp"
+    android:background="?android:attr/listDivider" />
