@@ -51,15 +51,11 @@ import org.springframework.http.converter.json.GsonHttpMessageConverter;
 import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
+import org.apache.commons.httpclient.*;
 
 public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > implements LocationListener {
 	private static final HttpTransport HTTP_TRANSPORT = AndroidHttp.newCompatibleTransport();
@@ -111,21 +107,21 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 		// convert java object to JSON format,
 		// and returned as JSON formatted string
 //		
-		HttpClient httpClient = HttpClientBuilder.create().build(); //Use this instead 
+		HttpClient httpClient = new HttpClient();
 
-	    try {
-	        HttpPost request = new HttpPost("http://yoururl");
-	        StringEntity params =new StringEntity("details={\"name\":\"myname\",\"age\":\"20\"} ");
-	        request.addHeader("content-type", "application/x-www-form-urlencoded");
-	        request.setEntity(params);
-	        org.apache.http.HttpResponse response = httpClient.execute(request);
-
-	        // handle response here...
-	    }catch (Exception ex) {
-	        // handle exception here
-	    } finally {
-	        httpClient.getConnectionManager().shutdown();
-	    }
+//	    try {
+//	        HttpPost request = new HttpPost("http://yoururl");
+//	        StringEntity params =new StringEntity("details={\"name\":\"myname\",\"age\":\"20\"} ");
+//	        request.addHeader("content-type", "application/x-www-form-urlencoded");
+//	        request.setEntity(params);
+//	        org.apache.http.HttpResponse response = httpClient.execute(request);
+//
+//	        // handle response here...
+//	    }catch (Exception ex) {
+//	        // handle exception here
+//	    } finally {
+//	        httpClient.getConnectionManager().shutdown();
+//	    }
 //		try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
 //            HttpPost request = new HttpPost("http://naviserver.azurewebsites.net/api/Navigation/Get");
 //            StringEntity params = new StringEntity(json);
