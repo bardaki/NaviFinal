@@ -54,7 +54,7 @@ public class Navigation implements Serializable{
 		String[] src = startAdd.split(",");
 		String[] dst = endAdd.split(",");
 
-		return src[0] + " - " + dst[0] + " : " + addresses.size() + " πχεγεϊ αιπιιν";
+		return src[0] + " - " + dst[0] + " : " + addresses.size() + "Χ Χ§Χ•Χ“Χ•Χª Χ‘Χ™Χ Χ™Χ™Χ";
 	}
 
 	public String getId() {

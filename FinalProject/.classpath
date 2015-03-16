@@ -20,6 +20,7 @@
 	<classpathentry kind="lib" path="libs/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="libs/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="libs/org.apache.commons.httpclient.jar"/>
+	<classpathentry kind="lib" path="libs/android-async-http-1.4.4.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="output" path="bin/classes"/>

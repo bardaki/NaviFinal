@@ -9,7 +9,6 @@ import org.apache.http.util.EntityUtils;
 
 import com.example.finalproject.R;
 import com.example.finalproject.bl.DirectionsFetcher;
-import com.example.finalproject.bl.DirectionsFetcher.DirectionsResult;
 import com.example.finalproject.classes.Address;
 import com.example.finalproject.classes.Navigation;
 import com.example.finalproject.custom.AddressAdapter;
