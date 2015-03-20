@@ -1,16 +1,13 @@
 package com.example.finalproject.services;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.example.finalproject.classes.Navigation;
 import com.example.finalproject.classes.Route;
 
-import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
@@ -19,18 +16,18 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 
 public class LocationService extends Service 
 {
 	public static final String BROADCAST_ACTION = "Hello World";
-	private static final int TWO_MINUTES = 1000 * 60 * 2;
 	public LocationManager locationManager;
 	public MyLocationListener listener;
 	public Location previousBestLocation = null;
+	@SuppressWarnings("unused")
 	private List<Route> routes = new ArrayList<Route>();
+	@SuppressWarnings("unused")
 	private Navigation nav = new Navigation();
 	private Handler handler = new Handler();
 	private int endLatitude;
@@ -94,15 +91,6 @@ public class LocationService extends Service
 
 	private double deg2rad(double deg) {
 		return (deg * Math.PI / 180.0);
-	}
-
-
-	/** Checks whether two providers are the same */
-	private boolean isSameProvider(String provider1, String provider2) {
-		if (provider1 == null) {
-			return provider2 == null;
-		}
-		return provider1.equals(provider2);
 	}
 
 	@Override

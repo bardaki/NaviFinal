@@ -11,6 +11,7 @@ import com.example.finalproject.custom.FavoritesAdapter;
 import com.example.finalproject.custom.MyApplication;
 import com.example.finalproject.custom.SwipeDismissListViewTouchListener;
 import com.example.finalproject.utils.SqliteController;
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -31,6 +32,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+@SuppressLint("RtlHardcoded")
 public class FavoritesActivity extends ActionBarActivity {
 	private SqliteController sqlController = new SqliteController(this);
 	private static FavoritesAdapter adapter;
@@ -158,6 +160,12 @@ public class FavoritesActivity extends ActionBarActivity {
 
 	public void mapClicked(View v){
 		Intent i = new Intent(FavoritesActivity.this, MainActivity.class);
+		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
+		startActivity(i);
+	}
+	
+	public void helpClicked(View v){
+		Intent i = new Intent(FavoritesActivity.this, HelpActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);
 	}

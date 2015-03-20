@@ -54,10 +54,14 @@ public class Navigation implements Serializable{
 		String[] src = startAdd.split(",");
 		String[] dst = endAdd.split(",");
 
-		return src[0] + " - " + dst[0] + " : " + addresses.size() + "נקודות ביניים";
+		return src[0] + " - " + dst[0] + " : " + addresses.size() + " נקודות ביניים";
 	}
 
 	public String getId() {
 		return id;
+	}
+	
+	public void setId(String id){
+		this.id = id;
 	}
 }

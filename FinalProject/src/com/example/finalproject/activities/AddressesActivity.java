@@ -1,11 +1,7 @@
 package com.example.finalproject.activities;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.util.EntityUtils;
 
 import com.example.finalproject.R;
 import com.example.finalproject.bl.DirectionsFetcher;
@@ -14,16 +10,6 @@ import com.example.finalproject.classes.Navigation;
 import com.example.finalproject.custom.AddressAdapter;
 import com.example.finalproject.custom.MyApplication;
 import com.example.finalproject.custom.PlacesAutoCompleteAdapter;
-import com.google.api.client.extensions.android.http.AndroidHttp;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpRequest;
-import com.google.api.client.http.HttpRequestFactory;
-import com.google.api.client.http.HttpRequestInitializer;
-import com.google.api.client.http.HttpResponse;
-import com.google.api.client.http.HttpTransport;
-import com.google.api.client.json.JsonFactory;
-import com.google.api.client.json.JsonObjectParser;
-import com.google.api.client.json.jackson.JacksonFactory;
 
 import android.os.Bundle;
 import android.annotation.SuppressLint;
@@ -48,6 +34,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+@SuppressLint("RtlHardcoded")
 public class AddressesActivity extends ActionBarActivity implements OnItemClickListener  {
 	private List<Address> placesArray = new ArrayList<Address>();
 	private static AddressAdapter adapter;
@@ -57,11 +44,8 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_addresses);	
-		// get global variable
+		//get global variable
 		nav = ((MyApplication) this.getApplication()).getNavigation();
-		if(nav.getId() == null){
-			nav = new Navigation(java.util.UUID.randomUUID().toString(), "", new ArrayList<String>(), "");
-		}
 		//Start Address
 		final AutoCompleteTextView autoCompViewStart = (AutoCompleteTextView) findViewById(R.id.autocompleteStart);
 		autoCompViewStart.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.list_item));
@@ -206,9 +190,9 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 
 	public void startNavClicked(){
 		//set global variable
-				((MyApplication) this.getApplication()).setNavigation(nav);
-				DirectionsFetcher df = new DirectionsFetcher(this);
-				df.execute();
+		((MyApplication) this.getApplication()).setNavigation(nav);
+		DirectionsFetcher df = new DirectionsFetcher(this);
+		df.execute();
 	}
 
 	public void favoritesClicked(View v){
@@ -219,6 +203,12 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 
 	public void mapClicked(View v){
 		Intent i = new Intent(AddressesActivity.this, MainActivity.class);
+		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
+		startActivity(i);
+	}
+	
+	public void helpClicked(View v){
+		Intent i = new Intent(AddressesActivity.this, HelpActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);
 	}

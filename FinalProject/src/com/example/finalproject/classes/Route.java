@@ -3,6 +3,7 @@ package com.example.finalproject.classes;
 import java.io.Serializable;
 
 
+@SuppressWarnings("serial")
 public class Route implements Serializable{
 	private String source;
 	private String destination;

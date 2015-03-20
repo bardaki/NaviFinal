@@ -61,6 +61,7 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/ic_action_help"
+            android:onClick="helpClicked"
             android:orderInCategory="0"
             android:src="@drawable/ic_action_help"
             android:text="@string/action_help"

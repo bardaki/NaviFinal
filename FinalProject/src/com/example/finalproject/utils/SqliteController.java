@@ -11,7 +11,6 @@ import android.util.Log;
 
 public class SqliteController extends SQLiteOpenHelper { 
 	private static final String LOGCAT = null; 
-	private SQLiteDatabase sqLiteDatabase;
 
 	public SqliteController(Context applicationcontext) { 
 		super(applicationcontext, "androidsqlite.db", null, 1); 
@@ -44,7 +43,7 @@ public class SqliteController extends SQLiteOpenHelper {
 		query = "delete from Places"; 
 		database.execSQL(query); 
 	}
-	
+
 	public void delete(String id){
 		String query; 
 		SQLiteDatabase database = this.getWritableDatabase();
@@ -89,7 +88,7 @@ public class SqliteController extends SQLiteOpenHelper {
 		} 
 		return wordList; 
 	}
-	
+
 	public ArrayList<HashMap<String, String>> getAllFavorites_addresses(String id) { 
 		ArrayList<HashMap<String, String>> wordList; 
 		wordList = new ArrayList<HashMap<String, String>>(); 

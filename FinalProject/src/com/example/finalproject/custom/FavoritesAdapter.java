@@ -2,7 +2,6 @@ package com.example.finalproject.custom;
 
 import java.util.List;
 import com.example.finalproject.R;
-import com.example.finalproject.classes.Favorite;
 import com.example.finalproject.classes.Navigation;
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -43,8 +42,6 @@ public class FavoritesAdapter extends BaseAdapter {
 		LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View view = inflater.inflate(R.layout.favorites_item, null);
 		TextView txtName = (TextView) view.findViewById(R.id.addressTxt);		
-		String startAddress = data.get(position).getStartAdd();
-		String EndAddress = data.get(position).getEndAdd();
 		txtName.setText(data.get(position).toString());
 
 		return view;

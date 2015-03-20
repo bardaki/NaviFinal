@@ -6,7 +6,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -27,8 +26,6 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class MainActivity extends ActionBarActivity implements OnItemClickListener{
 	private GoogleMap googleMap;
-	Dialog dialogAddresses;
-	Dialog dialogEndAddress;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {		
@@ -119,6 +116,12 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);
 	}
+
+	public void helpClicked(View v){
+		Intent i = new Intent(MainActivity.this, HelpActivity.class);
+		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
+		startActivity(i);
+	}		
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

@@ -2230,13 +2230,14 @@ containing a value of this type.
         public static final int activity_addresses=0x7f03001d;
         public static final int activity_favorite_details=0x7f03001e;
         public static final int activity_favorites=0x7f03001f;
-        public static final int activity_main=0x7f030020;
-        public static final int activity_routs=0x7f030021;
-        public static final int address_item=0x7f030022;
-        public static final int favorites_item=0x7f030023;
-        public static final int list_item=0x7f030024;
-        public static final int support_simple_spinner_dropdown_item=0x7f030025;
-        public static final int text_bubble=0x7f030026;
+        public static final int activity_help=0x7f030020;
+        public static final int activity_main=0x7f030021;
+        public static final int activity_routs=0x7f030022;
+        public static final int address_item=0x7f030023;
+        public static final int favorites_item=0x7f030024;
+        public static final int list_item=0x7f030025;
+        public static final int support_simple_spinner_dropdown_item=0x7f030026;
+        public static final int text_bubble=0x7f030027;
     }
     public static final class menu {
         public static final int actionbar=0x7f0c0000;
@@ -2246,14 +2247,15 @@ containing a value of this type.
         public static final int end_address=0x7f0c0004;
         public static final int favorite_details=0x7f0c0005;
         public static final int favorites=0x7f0c0006;
-        public static final int main=0x7f0c0007;
-        public static final int navigation=0x7f0c0008;
-        public static final int popup=0x7f0c0009;
-        public static final int routs=0x7f0c000a;
-        public static final int show_map=0x7f0c000b;
-        public static final int test=0x7f0c000c;
-        public static final int test_map=0x7f0c000d;
-        public static final int test_route=0x7f0c000e;
+        public static final int help=0x7f0c0007;
+        public static final int main=0x7f0c0008;
+        public static final int navigation=0x7f0c0009;
+        public static final int popup=0x7f0c000a;
+        public static final int routs=0x7f0c000b;
+        public static final int show_map=0x7f0c000c;
+        public static final int test=0x7f0c000d;
+        public static final int test_map=0x7f0c000e;
+        public static final int test_route=0x7f0c000f;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -2435,6 +2437,7 @@ containing a value of this type.
         public static final int favoriteDetails=0x7f0a005f;
         public static final int finish=0x7f0a005a;
         public static final int hello_world=0x7f0a0033;
+        public static final int help=0x7f0a0061;
         public static final int home=0x7f0a0058;
         public static final int intermediate=0x7f0a0060;
         public static final int multi_auto_complete=0x7f0a0035;
@@ -2453,8 +2456,9 @@ containing a value of this type.
         public static final int title_activity_addresses=0x7f0a0052;
         public static final int title_activity_directions_maps_fragment=0x7f0a0041;
         public static final int title_activity_end_address=0x7f0a0053;
-        public static final int title_activity_favorite_details=0x7f0a0062;
-        public static final int title_activity_favorites=0x7f0a0061;
+        public static final int title_activity_favorite_details=0x7f0a0063;
+        public static final int title_activity_favorites=0x7f0a0062;
+        public static final int title_activity_help=0x7f0a0064;
         public static final int title_activity_main=0x7f0a0051;
         public static final int title_activity_navigation=0x7f0a0055;
         public static final int title_activity_routs=0x7f0a0054;

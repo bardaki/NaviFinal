@@ -117,6 +117,10 @@
             android:name=".FavoriteDetailsActivity"
             android:label="@string/title_activity_favorite_details" >
         </activity>
+        <activity
+            android:name="com.example.finalproject.activities.HelpActivity"
+            android:label="@string/title_activity_help" >
+        </activity>
     </application>
 
 </manifest>

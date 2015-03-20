@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 import com.example.finalproject.R;
 import com.example.finalproject.bl.DirectionsFetcher;
 import com.example.finalproject.classes.Address;
@@ -54,7 +55,6 @@ public class RoutsActivity extends ActionBarActivity  {
 		stopService(intService);
 		// get global variable
 		routes = ((MyApplication) this.getApplication()).getRoutes();
-		Intent intent = getIntent();
 		String[] values = new String[routes.size()];
 		nav = ((MyApplication) this.getApplication()).getNavigation();
 		for(int i = 0; i< routes.size(); i++){
@@ -181,13 +181,14 @@ public class RoutsActivity extends ActionBarActivity  {
 	public int getAddressLocation(String address){
 		int i = 0;
 		for(i = 0; i < placesArray.size(); i++){
-			if(placesArray.get(i).getName() == address)
+			if(placesArray.get(i).getName().equals(address))
 				break;
 		}
 		return i;
 	}
 
 	public void addToFavorites(){
+		nav.setId(java.util.UUID.randomUUID().toString());
 		HashMap<String, String> favorite_startEnd = new HashMap<String, String>();
 		HashMap<String, String> favorite_addresses = new HashMap<String, String>();
 		favorite_startEnd.put("Id", null); 
@@ -200,7 +201,7 @@ public class RoutsActivity extends ActionBarActivity  {
 			favorite_addresses.put("Place" + i, nav.getAddresses().get(i));
 		}
 		sqlController.insertFavorite(favorite_startEnd, favorite_addresses);
-		Toast.makeText(getApplicationContext(), "ξρμεμ περσ μξεςγτιν", 
+		Toast.makeText(getApplicationContext(), "ΧΧ΅ΧΧ•Χ Χ Χ•Χ΅Χ£ ΧΧΧ•ΧΆΧ“Χ¤Χ™Χ", 
 				Toast.LENGTH_SHORT).show();
 	}
 
@@ -248,6 +249,12 @@ public class RoutsActivity extends ActionBarActivity  {
 
 	public void mapClicked(View v){
 		Intent i = new Intent(RoutsActivity.this, MainActivity.class);
+		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
+		startActivity(i);
+	}
+	
+	public void helpClicked(View v){
+		Intent i = new Intent(RoutsActivity.this, HelpActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);
 	}
