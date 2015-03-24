@@ -5,6 +5,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.List;
 import java.util.Locale;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -19,6 +20,8 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Gravity;
+
+import com.example.finalproject.activities.AddressesActivity;
 import com.example.finalproject.activities.RoutsActivity;
 import com.example.finalproject.classes.Navigation;
 import com.example.finalproject.classes.Route;
@@ -26,6 +29,7 @@ import com.example.finalproject.custom.MyApplication;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -39,6 +43,7 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 	private Context context;
 	private final ProgressDialog ringProgressDialog;
 	private List<Route> optimizeRoute;
+	private boolean doInBg;
 
 	public DirectionsFetcher(Context context) {
 		this.context = context;
@@ -48,6 +53,7 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 	@Override
 	protected void onPreExecute() {
 		super.onPreExecute();
+		this.doInBg = true;
 		this.nav = ((MyApplication) ((Activity) context).getApplication()).getNavigation();
 		ringProgressDialog.getWindow().setGravity(Gravity.RIGHT);
 		ringProgressDialog.setCancelable(false);
@@ -65,43 +71,48 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 			}
 			if(nav.getEndAdd().equals("")){
 				addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-				nav.addEndAdd(addresses.get(0).getAddressLine(0) + "," + addresses.get(0).getAddressLine(1) + "," + addresses.get(0).getAddressLine(2));
+				nav.addEndAdd(addresses.get(0).getAddressLine(0) + "," + addresses.get(0).getAddressLine(1) + "," + addresses.get(0).getAddressLine(2));	
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			doInBg = false;			
 		}
 	}
 
 	@SuppressLint("NewApi") 
 	protected List<LatLng> doInBackground(URL... urls) {
-		Gson gson = new Gson();	 
-		String json = gson.toJson(nav);
-		HttpClient httpclient = new DefaultHttpClient();
-		HttpPost httpPost = new HttpPost(SERVER_URL);
-		StringEntity se;
-		//Request best route from server
-		try {
-			se = new StringEntity(json, "UTF-8");
-			httpPost.setEntity(se);
-			httpPost.setHeader("Accept", "application/json");
-			httpPost.setHeader("Content-type", "application/json");
-			httpPost.setHeader(
-					"Authorization",
-					"Bearer TokenRemovedBecauseUseless");
-			org.apache.http.HttpResponse httpResponse = httpclient.execute(httpPost);
-			String jsonn = EntityUtils.toString(httpResponse.getEntity());
-			TypeToken<List<Route>> token = new TypeToken<List<Route>>(){};
-			optimizeRoute = gson.fromJson(jsonn, token.getType());
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(doInBg){
+			Gson gson = new Gson();	 
+			String json = gson.toJson(nav);
+			HttpClient httpclient = new DefaultHttpClient();
+			HttpPost httpPost = new HttpPost(SERVER_URL);
+			StringEntity se;
+			//Request best route from server
+			try {
+				se = new StringEntity(json, "UTF-8");
+				httpPost.setEntity(se);
+				httpPost.setHeader("Accept", "application/json");
+				httpPost.setHeader("Content-type", "application/json");
+				httpPost.setHeader(
+						"Authorization",
+						"Bearer TokenRemovedBecauseUseless");
+				org.apache.http.HttpResponse httpResponse = httpclient.execute(httpPost);
+				if(httpResponse.getStatusLine().getStatusCode() != 200)
+					doInBg = false;	
+				else{
+					String jsonn = EntityUtils.toString(httpResponse.getEntity());
+					TypeToken<List<Route>> token = new TypeToken<List<Route>>(){};
+					optimizeRoute = gson.fromJson(jsonn, token.getType());
+				}
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return null;
 	}
@@ -110,11 +121,20 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 
 	protected void onPostExecute(List<LatLng> result) {   
 		ringProgressDialog.dismiss();
-		//set global variable
-		((MyApplication) ((Activity) context).getApplication()).setRoutes(optimizeRoute);
-		Intent i = new Intent(context, RoutsActivity.class);
-		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);	
-		context.startActivity(i);
+		((MyApplication) ((Activity) context).getApplication()).setDoInBg(doInBg);
+		if(doInBg){		
+			//set global variable
+			((MyApplication) ((Activity) context).getApplication()).setRoutes(optimizeRoute);
+			Intent i = new Intent(context, RoutsActivity.class);
+			i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);	
+			context.startActivity(i);
+		}
+		else{
+			ringProgressDialog.dismiss();
+			Intent i = new Intent(context, AddressesActivity.class);
+			i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);	
+			context.startActivity(i);
+		}
 	}
 
 	@Override

@@ -1,10 +1,9 @@
-
-
-    <fragment  xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/mapview"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        class="com.google.android.gms.maps.SupportMapFragment" >
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mapview"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    class="com.google.android.gms.maps.SupportMapFragment" >
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -16,7 +15,8 @@
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            tools:ignore="UselessParent" >
 
             <Button
                 android:id="@+id/action_map"
@@ -29,7 +29,8 @@
                 android:src="@drawable/ic_action_map"
                 android:text="@string/action_map"
                 android:textColor="@color/black"
-                android:textSize="8sp" />
+                android:textSize="8sp"
+                tools:ignore="ButtonStyle,SmallSp" />
 
             <Button
                 android:id="@+id/action_plane"
@@ -43,7 +44,8 @@
                 android:src="@drawable/ic_action_split"
                 android:text="@string/action_plane"
                 android:textColor="@color/black"
-                android:textSize="8sp" />
+                android:textSize="8sp"
+                tools:ignore="SmallSp" />
 
             <Button
                 android:id="@+id/action_favorits2"
@@ -57,7 +59,8 @@
                 android:src="@drawable/ic_action_favorite"
                 android:text="@string/action_favorits"
                 android:textColor="@color/black"
-                android:textSize="8sp" />
+                android:textSize="8sp"
+                tools:ignore="SmallSp" />
 
             <Button
                 android:id="@+id/action_help2"
@@ -71,7 +74,8 @@
                 android:src="@drawable/ic_action_help"
                 android:text="@string/action_help"
                 android:textColor="@color/black"
-                android:textSize="8sp" />
+                android:textSize="8sp"
+                tools:ignore="SmallSp" />
 
             <Button
                 android:id="@+id/action_settings2"
@@ -81,9 +85,11 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:drawableTop="@drawable/ic_action_settings"
                 android:src="@drawable/ic_action_settings"
-                android:text="@string/action_settings" 
+                android:text="@string/action_settings"
                 android:textColor="@color/black"
-                android:textSize="8sp" />
+                android:textSize="8sp"
+                tools:ignore="SmallSp" />
+
         </LinearLayout>
     </LinearLayout>
 

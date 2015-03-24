@@ -23,7 +23,7 @@
     <string name="startnav">חפש</string>
     <string name="next">הבא</string>
     <string name="back">הקודם</string>
-    <string name="remove">מחק כתובת מהרשימה</string>
+    <string name="remove">מחק כתובת</string>
     <string name="timeText">שעה אחרונה להגעה: </string>
     <string name="action_settings">הגדרות</string>
     <string name="action_help">עזרה</string>
@@ -36,6 +36,7 @@
     <string name="title_activity_addresses">תכנון מסלול</string>
     <string name="title_activity_end_address">EndAddressActivity</string>
     <string name="title_activity_routs">מסלול אופטימלי</string>
+    <string name="title_activity_help">עזרה</string>
     <string name="title_activity_navigation">NavigationActivity</string>
     <string name="title_activity_address_edit"></string>
     <string name="exit">יציאה</string>
@@ -48,8 +49,16 @@
     <string name="removetxt">החלק ימינה/שמאלה על המסלול על מנת למחוק</string>
     <string name="favoriteDetails">פרטי מסלול</string>
     <string name="intermediate">נקודות ביניים: </string>
+    <string name="removeq">בטוח?</string>
+    <string name="removeqs">למחוק מועדפים?</string>
+    <string name="yes">כן</string>
+    <string name="no">לא</string>
     <string name="help">להתחלת הניווט עבור למסך ״תכנון מסלול״, הוסף נקודת התחלת ניווט, הוסף יעדים לביקור ויעד סופי ולחץ על ״חפש״.</string>
-
+	<string name="error">שגיאה</string>
+	<string name="erroMsg">השירות לא זמין זמנית אנא נסה שנית מאוחר יותר</string>
+	<string name="_continue">המשך</string>
+	<string name="save">שמור</string>
+	
     <color name="gray">#DCE1E1</color>
     <color name="green">#00FF00</color>
     <color name="red">#FF0000</color>
@@ -60,6 +69,5 @@
 
     <string name="title_activity_favorites">FavoritesActivity</string>
     <string name="title_activity_favorite_details">FavoriteDetailsActivity</string>
-    <string name="title_activity_help">HelpActivity</string>
 
 </resources>

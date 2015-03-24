@@ -13,6 +13,7 @@ public class MyApplication extends Application {
 	private List<Route> routes = new ArrayList<Route>();
 	private Navigation nav = new Navigation();
 	private List<Address> placesArray = new ArrayList<Address>();
+	private boolean doInBg = true;
 
 	public List<Route> getRoutes() {
 		return routes;
@@ -36,5 +37,13 @@ public class MyApplication extends Application {
 
 	public void setPlaces(List<Address> placesArray) {
 		this.placesArray = placesArray;
+	}
+
+	public boolean getDoInBg() {
+		return doInBg;
+	}
+
+	public void setDoInBg(boolean doInBg) {
+		this.doInBg = doInBg;
 	}
 }

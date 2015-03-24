@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout1"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
@@ -11,7 +12,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom">
+        android:layout_gravity="bottom" >
 
         <Button
             android:id="@+id/action_map"
@@ -25,7 +26,8 @@
             android:src="@drawable/ic_action_map"
             android:text="@string/action_map"
             android:textColor="@color/black"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
 
         <Button
             android:id="@+id/action_plane"
@@ -38,7 +40,8 @@
             android:src="@drawable/ic_action_split"
             android:text="@string/action_plane"
             android:textColor="@color/black"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            tools:ignore="ButtonStyle,SmallSp" />
 
         <Button
             android:id="@+id/action_favorits2"
@@ -52,7 +55,8 @@
             android:src="@drawable/ic_action_favorite"
             android:text="@string/action_favorits"
             android:textColor="@color/black"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
 
         <Button
             android:id="@+id/action_help2"
@@ -66,7 +70,8 @@
             android:src="@drawable/ic_action_help"
             android:text="@string/action_help"
             android:textColor="@color/black"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
 
         <Button
             android:id="@+id/action_settings2"
@@ -78,9 +83,11 @@
             android:src="@drawable/ic_action_settings"
             android:text="@string/action_settings"
             android:textColor="@color/black"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
+
     </LinearLayout>
-    
+
     <AutoCompleteTextView
         android:id="@+id/autocompleteEnd"
         android:layout_width="match_parent"
@@ -93,13 +100,24 @@
         android:ems="10"
         android:hint="@string/start"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/TextView0_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/autocompleteEnd"
+        android:layout_alignRight="@+id/autocompleteEnd"
+        android:text="@string/end_txt"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        tools:ignore="RtlHardcoded" />
 
     <ListView
         android:id="@+id/addressesListView"
         android:layout_width="match_parent"
-        android:layout_above="@id/autocompleteEnd"
         android:layout_height="wrap_content"
+        android:layout_above="@id/TextView0_end"
         android:layout_below="@+id/autocompleteAddresses"
         android:divider="@color/black"
         android:dividerHeight="1dip" >
@@ -118,7 +136,9 @@
         android:ems="10"
         android:hint="@string/addresses"
         android:textColor="@color/black"
-        android:textSize="20sp" >
+        android:textSize="20sp"
+        tools:ignore="RtlHardcoded" >
+
     </AutoCompleteTextView>
 
     <TextView
@@ -129,16 +149,8 @@
         android:layout_below="@+id/autocompleteStart"
         android:layout_marginTop="24dp"
         android:text="@string/addresses_txt"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <TextView
-        android:id="@+id/TextView0_end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/autocompleteEnd"
-        android:layout_alignRight="@+id/autocompleteEnd"
-        android:text="@string/end_txt"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        tools:ignore="RtlHardcoded" />
 
     <AutoCompleteTextView
         android:id="@+id/autocompleteStart"
@@ -152,9 +164,11 @@
         android:ems="10"
         android:hint="@string/start"
         android:textColor="@color/black"
-        android:textSize="20sp" >
-            <requestFocus />
-       </AutoCompleteTextView>
+        android:textSize="20sp"
+        tools:ignore="RtlHardcoded" >
+
+        <requestFocus />
+    </AutoCompleteTextView>
 
     <TextView
         android:id="@+id/textView_start"
@@ -163,8 +177,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/TextView_addresses"
         android:text="@string/start_txt"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-   
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        tools:ignore="RtlHardcoded" />
 
 </RelativeLayout>

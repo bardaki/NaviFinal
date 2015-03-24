@@ -3,6 +3,7 @@ package com.example.finalproject.activities;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 import com.example.finalproject.R;
 import com.example.finalproject.bl.DirectionsFetcher;
 import com.example.finalproject.classes.Address;
@@ -11,8 +12,11 @@ import com.example.finalproject.custom.FavoritesAdapter;
 import com.example.finalproject.custom.MyApplication;
 import com.example.finalproject.custom.SwipeDismissListViewTouchListener;
 import com.example.finalproject.utils.SqliteController;
+
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -127,9 +131,23 @@ public class FavoritesActivity extends ActionBarActivity {
 
 			@Override
 			public void onClick(View v) {
-				adapter.removeAll();                          	 
-				sqlController.deleteAll();
-				adapter.notifyDataSetChanged();				
+				new AlertDialog.Builder(FavoritesActivity.this)
+				.setTitle(R.string.removeq)
+				.setMessage(R.string.removeqs)
+				.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) { 
+
+					}
+				}).setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) { 
+						adapter.removeAll();                          	 
+						sqlController.deleteAll();
+						adapter.notifyDataSetChanged();	
+					}
+				})
+				.setIcon(android.R.drawable.ic_dialog_alert)
+				.show();
+
 			}
 		});
 	}
@@ -163,7 +181,7 @@ public class FavoritesActivity extends ActionBarActivity {
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);
 	}
-	
+
 	public void helpClicked(View v){
 		Intent i = new Intent(FavoritesActivity.this, HelpActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 

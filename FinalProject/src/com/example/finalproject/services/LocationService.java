@@ -62,7 +62,8 @@ public class LocationService extends Service
 	{
 		return null;
 	}
-
+	
+	//Calculate distance from destination(< 300m)
 	protected boolean isBetterLocation(Location location, Location currentBestLocation) {
 		double distance = distance(location.getLatitude(), location.getLongitude(), (double)endLatitude / 1E6, (double)endLongitude / 1E6, 'K');
 		if(distance < 0.3)

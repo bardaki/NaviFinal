@@ -1,25 +1,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout1"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:gravity="bottom"
     android:background="@drawable/customborder"
+    android:gravity="bottom"
     android:orientation="vertical" >
 
     <ListView
         android:id="@+id/favoriteslistView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true" >
+        android:layout_above="@+id/linearLayoutMenu"
+        android:layout_alignParentTop="true" 
+        android:background="@color/gray">
     </ListView>
 
     <LinearLayout
+        android:id="@+id/linearLayoutMenu"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/favoriteslistView"
-        android:layout_gravity="bottom"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="1dp" >
+        android:layout_alignParentLeft="true"
+        tools:ignore="RtlHardcoded" >
 
         <Button
             android:id="@+id/action_map"
@@ -33,7 +36,8 @@
             android:src="@drawable/ic_action_map"
             android:text="@string/action_map"
             android:textColor="@color/black"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
 
         <Button
             android:id="@+id/action_plane"
@@ -47,7 +51,8 @@
             android:src="@drawable/ic_action_split"
             android:text="@string/action_plane"
             android:textColor="@color/black"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
 
         <Button
             android:id="@+id/action_favorits2"
@@ -60,7 +65,8 @@
             android:src="@drawable/ic_action_favorite"
             android:text="@string/action_favorits"
             android:textColor="@color/black"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            tools:ignore="SmallSp,ButtonStyle" />
 
         <Button
             android:id="@+id/action_help2"
@@ -74,7 +80,8 @@
             android:src="@drawable/ic_action_help"
             android:text="@string/action_help"
             android:textColor="@color/black"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
 
         <Button
             android:id="@+id/action_settings2"
@@ -86,7 +93,9 @@
             android:src="@drawable/ic_action_settings"
             android:text="@string/action_settings"
             android:textColor="@color/black"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
+
     </LinearLayout>
 
 </RelativeLayout>

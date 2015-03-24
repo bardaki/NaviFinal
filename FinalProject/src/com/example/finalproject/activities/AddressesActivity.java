@@ -10,10 +10,13 @@ import com.example.finalproject.classes.Navigation;
 import com.example.finalproject.custom.AddressAdapter;
 import com.example.finalproject.custom.MyApplication;
 import com.example.finalproject.custom.PlacesAutoCompleteAdapter;
+import com.example.finalproject.services.LocationService;
 
 import android.os.Bundle;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -39,11 +42,22 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 	private List<Address> placesArray = new ArrayList<Address>();
 	private static AddressAdapter adapter;
 	private Navigation nav;
+	private boolean doInBg;
+	
+	Intent intService;
 
 	@SuppressLint("ClickableViewAccessibility") @Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_addresses);	
+		setContentView(R.layout.activity_addresses);
+		doInBg = ((MyApplication) this.getApplication()).getDoInBg();
+		if(!doInBg){
+			showErrorAlert();
+		}
+		try{
+			intService = new Intent(this, LocationService.class);
+			stopService(intService);
+		} catch(Exception ex){}		
 		//get global variable
 		nav = ((MyApplication) this.getApplication()).getNavigation();
 		//Start Address
@@ -107,7 +121,8 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 
 		adapter = new AddressAdapter(this, placesArray);	
 		ListView places = (ListView) findViewById(R.id.addressesListView);
-		places.setAdapter(adapter);		
+		places.setAdapter(adapter);	
+		//Edit dialog for address
 		places.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -129,6 +144,14 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 						adapter = new AddressAdapter(AddressesActivity.this, placesArray);	
 						ListView places = (ListView) findViewById(R.id.addressesListView);
 						places.setAdapter(adapter);
+						dialogEditAddress.dismiss();
+					}
+				}); 
+				Button saveBtn = (Button) dialogEditAddress.findViewById(R.id.buttonSave);
+				saveBtn.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
 						dialogEditAddress.dismiss();
 					}
 				}); 
@@ -211,5 +234,18 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 		Intent i = new Intent(AddressesActivity.this, HelpActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);
+	}
+	
+	public void showErrorAlert(){
+		new AlertDialog.Builder(this)
+		.setTitle(R.string.error)
+		.setMessage(R.string.erroMsg)
+		.setNegativeButton(R.string._continue, new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) { 
+				
+			}
+		})
+		.setIcon(android.R.drawable.ic_dialog_alert)
+		.show();
 	}
 }

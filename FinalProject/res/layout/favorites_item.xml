@@ -1,17 +1,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content" 
-    android:orientation="vertical"
-    android:background="@color/gray">
+    android:layout_height="wrap_content"
+    android:background="@color/gray"
+    android:orientation="vertical" >
 
-	<TextView
-	    android:id="@+id/addressTxt"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:gravity="right"
-	    android:padding="10dp"
-	    android:textColor="@color/black"
-	    android:textSize="16sp"
-	    android:textStyle="italic" />
-   
-</RelativeLayout> 
+    <TextView
+        android:id="@+id/addressTxt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        tools:ignore="RtlHardcoded" />
+
+</RelativeLayout>

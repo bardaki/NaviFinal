@@ -1,6 +1,8 @@
 package com.example.finalproject.classes;
 
 import java.io.Serializable;
+import java.sql.Time;
+
 
 
 @SuppressWarnings("serial")
@@ -11,6 +13,7 @@ public class Route implements Serializable{
 	private int endLongitude;
 	private int duration;
 	private String durationText;
+	private Time lastTimeToArrive = null;
 
 	public Route(String source, String destination, String duration, String durationText, int endLatitude, int endLongitude){
 		this.source = source;
@@ -46,6 +49,14 @@ public class Route implements Serializable{
 		String[] dst = destination.split(",");
 
 		return src[0] + "- " + dst[0] + "\n          " + durationText;
+	}
+
+	public Time getLastTimeToArrive() {
+		return lastTimeToArrive;
+	}
+
+	public void setLastTimeToArrive(Time lastTimeToArrive) {
+		this.lastTimeToArrive = lastTimeToArrive;
 	}
 }
 
