@@ -442,8 +442,8 @@ public final class R {
 		public static final int ic_plusone_small_off_client = 0x7f020064;
 		public static final int ic_plusone_standard_off_client = 0x7f020065;
 		public static final int ic_plusone_tall_off_client = 0x7f020066;
-		public static final int powered_by_google_dark = 0x7f020068;
-		public static final int powered_by_google_light = 0x7f020069;
+		public static final int powered_by_google_dark = 0x7f020069;
+		public static final int powered_by_google_light = 0x7f02006a;
 	}
 	public static final class id {
 		public static final int action_bar = 0x7f090045;
@@ -558,8 +558,8 @@ public final class R {
 		public static final int abc_search_dropdown_item_icons_2line = 0x7f030014;
 		public static final int abc_search_view = 0x7f030015;
 		public static final int abc_simple_dropdown_hint = 0x7f030016;
-		public static final int support_simple_spinner_dropdown_item = 0x7f030027;
-		public static final int text_bubble = 0x7f030028;
+		public static final int support_simple_spinner_dropdown_item = 0x7f030028;
+		public static final int text_bubble = 0x7f030029;
 	}
 	public static final class string {
 		public static final int abc_action_bar_home_description = 0x7f0a0001;

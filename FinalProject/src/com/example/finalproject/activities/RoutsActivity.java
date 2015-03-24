@@ -39,6 +39,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class RoutsActivity extends ActionBarActivity  {
+	private final String GOOGLE_NAVIGATION = "google.navigation:q=";
+	private final String ROUTE_ADDED = "מסלול נוסף למועדפים";
 	private SqliteController sqlController = new SqliteController(this);
 	private List<Address> placesArray = new ArrayList<Address>();
 	private List<Route> routes = new ArrayList<Route>();
@@ -77,7 +79,7 @@ public class RoutsActivity extends ActionBarActivity  {
 				intService.putExtra("routes", (Serializable)routes);  
 				intService.putExtra("navObj", (Serializable)nav ); 
 				startService(intService);
-				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("google.navigation:q=" + routes.get(position).getDestination()));
+				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(GOOGLE_NAVIGATION + routes.get(position).getDestination()));
 				startActivity(intent); 
 
 			}
@@ -133,7 +135,7 @@ public class RoutsActivity extends ActionBarActivity  {
 		intService.putExtra("routes", (Serializable)routes);  
 		intService.putExtra("navObj", (Serializable)nav ); 
 		startService(intService);
-		Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("google.navigation:q=" + routes.get(position).getDestination()));
+		Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(GOOGLE_NAVIGATION + routes.get(position).getDestination()));
 		startActivity(intent);       
 	}
 
@@ -201,7 +203,7 @@ public class RoutsActivity extends ActionBarActivity  {
 			favorite_addresses.put("Place" + i, nav.getAddresses().get(i));
 		}
 		sqlController.insertFavorite(favorite_startEnd, favorite_addresses);
-		Toast.makeText(getApplicationContext(), "מסלול נוסף למועדפים", 
+		Toast.makeText(getApplicationContext(), ROUTE_ADDED, 
 				Toast.LENGTH_SHORT).show();
 	}
 

@@ -54,11 +54,11 @@
     <string name="yes">כן</string>
     <string name="no">לא</string>
     <string name="help">להתחלת הניווט עבור למסך ״תכנון מסלול״, הוסף נקודת התחלת ניווט, הוסף יעדים לביקור ויעד סופי ולחץ על ״חפש״.</string>
-	<string name="error">שגיאה</string>
-	<string name="erroMsg">השירות לא זמין זמנית אנא נסה שנית מאוחר יותר</string>
-	<string name="_continue">המשך</string>
-	<string name="save">שמור</string>
-	
+    <string name="error">שגיאה</string>
+    <string name="erroMsg">השירות לא זמין זמנית אנא נסה שנית מאוחר יותר</string>
+    <string name="_continue">המשך</string>
+    <string name="save">שמור</string>
+
     <color name="gray">#DCE1E1</color>
     <color name="green">#00FF00</color>
     <color name="red">#FF0000</color>
@@ -69,5 +69,6 @@
 
     <string name="title_activity_favorites">FavoritesActivity</string>
     <string name="title_activity_favorite_details">FavoriteDetailsActivity</string>
+    <string name="title_activity_splash">SplashActivity</string>
 
 </resources>

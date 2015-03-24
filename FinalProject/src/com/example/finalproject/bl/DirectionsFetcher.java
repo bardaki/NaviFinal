@@ -39,6 +39,8 @@ import org.apache.http.util.EntityUtils;
 @SuppressLint("RtlHardcoded")
 public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > implements LocationListener {
 	private final String SERVER_URL = "http://naviserver.azurewebsites.net/api/Navigation/Complex";
+	private final String CALC = "מחשב מסלול אופטימלי...";
+	private final String WAIT = "אנא המתן...";
 	private Navigation nav = new Navigation();
 	private Context context;
 	private final ProgressDialog ringProgressDialog;
@@ -47,7 +49,7 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 
 	public DirectionsFetcher(Context context) {
 		this.context = context;
-		this.ringProgressDialog = ProgressDialog.show(context, "אנא המתן...", "מחשב מסלול אופטימלי...", true);
+		this.ringProgressDialog = ProgressDialog.show(context, WAIT, CALC, true);
 	}
 
 	@Override

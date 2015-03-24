@@ -2042,9 +2042,11 @@ containing a value of this type.
         public static final int ic_plusone_small_off_client=0x7f020064;
         public static final int ic_plusone_standard_off_client=0x7f020065;
         public static final int ic_plusone_tall_off_client=0x7f020066;
-        public static final int nav=0x7f020067;
-        public static final int powered_by_google_dark=0x7f020068;
-        public static final int powered_by_google_light=0x7f020069;
+        public static final int myicon=0x7f020067;
+        public static final int nav=0x7f020068;
+        public static final int powered_by_google_dark=0x7f020069;
+        public static final int powered_by_google_light=0x7f02006a;
+        public static final int splash=0x7f02006b;
     }
     public static final class id {
         public static final int TextView0_end=0x7f090065;
@@ -2068,11 +2070,11 @@ containing a value of this type.
         public static final int action_mode_bar_stub=0x7f090041;
         public static final int action_mode_close_button=0x7f090034;
         public static final int action_plane=0x7f090060;
-        public static final int action_settings=0x7f09007b;
+        public static final int action_settings=0x7f09007d;
         public static final int action_settings2=0x7f090063;
         public static final int action_startnav=0x7f090055;
         public static final int activity_chooser_view_content=0x7f090035;
-        public static final int addressTxt=0x7f090079;
+        public static final int addressTxt=0x7f09007b;
         public static final int addressesListView=0x7f090066;
         public static final int addresstextView=0x7f090058;
         public static final int always=0x7f090015;
@@ -2096,7 +2098,7 @@ containing a value of this type.
         public static final int dialog=0x7f09001a;
         public static final int disableHome=0x7f09000e;
         public static final int dropdown=0x7f09001b;
-        public static final int editImg=0x7f090078;
+        public static final int editImg=0x7f09007a;
         public static final int edit_query=0x7f090047;
         public static final int end=0x7f09001d;
         public static final int expand_activities_button=0x7f090036;
@@ -2111,7 +2113,9 @@ containing a value of this type.
         public static final int icon=0x7f09003a;
         public static final int ifRoom=0x7f090017;
         public static final int image=0x7f090037;
-        public static final int linearLayout1=0x7f09005b;
+        public static final int imageView1=0x7f090078;
+        public static final int imageView2=0x7f090079;
+        public static final int linearLayout1=0x7f090059;
         public static final int linearLayout2=0x7f09005e;
         public static final int linearLayoutMenu=0x7f090073;
         public static final int list=0x7f090077;
@@ -2122,9 +2126,9 @@ containing a value of this type.
         public static final int match_parent=0x7f09002b;
         public static final int middle=0x7f09001e;
         public static final int monochrome=0x7f090031;
-        public static final int mprivate=0x7f09007e;
-        public static final int msettings=0x7f09007d;
-        public static final int mstart=0x7f09007c;
+        public static final int mprivate=0x7f090080;
+        public static final int msettings=0x7f09007f;
+        public static final int mstart=0x7f09007e;
         public static final int never=0x7f090018;
         public static final int none=0x7f090010;
         public static final int normal=0x7f09000c;
@@ -2165,11 +2169,11 @@ containing a value of this type.
         public static final int textViewStart=0x7f09006d;
         public static final int textViewStartTitle=0x7f090071;
         public static final int textView_start=0x7f09006a;
-        public static final int timePicker1=0x7f09005a;
-        public static final int timeText=0x7f090059;
+        public static final int timePicker1=0x7f09005b;
+        public static final int timeText=0x7f09005a;
         public static final int title=0x7f09003b;
         public static final int top=0x7f090020;
-        public static final int txtAddress=0x7f09007a;
+        public static final int txtAddress=0x7f09007c;
         public static final int up=0x7f090001;
         public static final int useLogo=0x7f090014;
         public static final int withText=0x7f090019;
@@ -2238,11 +2242,12 @@ containing a value of this type.
         public static final int activity_help=0x7f030021;
         public static final int activity_main=0x7f030022;
         public static final int activity_routs=0x7f030023;
-        public static final int address_item=0x7f030024;
-        public static final int favorites_item=0x7f030025;
-        public static final int list_item=0x7f030026;
-        public static final int support_simple_spinner_dropdown_item=0x7f030027;
-        public static final int text_bubble=0x7f030028;
+        public static final int activity_splash=0x7f030024;
+        public static final int address_item=0x7f030025;
+        public static final int favorites_item=0x7f030026;
+        public static final int list_item=0x7f030027;
+        public static final int support_simple_spinner_dropdown_item=0x7f030028;
+        public static final int text_bubble=0x7f030029;
     }
     public static final class menu {
         public static final int actionbar=0x7f0c0000;
@@ -2258,9 +2263,10 @@ containing a value of this type.
         public static final int popup=0x7f0c000a;
         public static final int routs=0x7f0c000b;
         public static final int show_map=0x7f0c000c;
-        public static final int test=0x7f0c000d;
-        public static final int test_map=0x7f0c000e;
-        public static final int test_route=0x7f0c000f;
+        public static final int splash=0x7f0c000d;
+        public static final int test=0x7f0c000e;
+        public static final int test_map=0x7f0c000f;
+        public static final int test_route=0x7f0c0010;
     }
     public static final class string {
         public static final int _continue=0x7f0a0069;
@@ -2475,6 +2481,7 @@ containing a value of this type.
         public static final int title_activity_navigation=0x7f0a0056;
         public static final int title_activity_routs=0x7f0a0054;
         public static final int title_activity_show_map=0x7f0a0043;
+        public static final int title_activity_splash=0x7f0a006d;
         public static final int title_activity_test=0x7f0a0042;
         public static final int title_activity_test_map=0x7f0a003f;
         public static final int title_activity_test_route=0x7f0a0040;
@@ -2489,11 +2496,13 @@ containing a value of this type.
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+
         
 
         Base application theme for API 11+. This theme completely replaces
@@ -2748,6 +2757,7 @@ containing a value of this type.
         public static final int Theme_AppCompat_Light_NoActionBar=0x7f0b00be;
         public static final int Theme_AppCompat_NoActionBar=0x7f0b00bd;
         public static final int Theme_IAPTheme=0x7f0b00eb;
+        public static final int Theme_Splash=0x7f0b00f6;
         public static final int ThemeOverlay_AppCompat=0x7f0b00c4;
         /**  Theme overlay that replaces the normal control color, which by default is the same as the
          secondary text color, with the primary text color. 
