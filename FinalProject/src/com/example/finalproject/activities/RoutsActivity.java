@@ -9,7 +9,7 @@ import com.example.finalproject.R;
 import com.example.finalproject.bl.DirectionsFetcher;
 import com.example.finalproject.classes.Address;
 import com.example.finalproject.classes.Navigation;
-import com.example.finalproject.classes.Route;
+import com.example.finalproject.classes.OptimizedRoute;
 import com.example.finalproject.custom.MyApplication;
 import com.example.finalproject.services.LocationService;
 import com.example.finalproject.utils.SqliteController;
@@ -43,7 +43,7 @@ public class RoutsActivity extends ActionBarActivity  {
 	private final String ROUTE_ADDED = "מסלול נוסף למועדפים";
 	private SqliteController sqlController = new SqliteController(this);
 	private List<Address> placesArray = new ArrayList<Address>();
-	private List<Route> routes = new ArrayList<Route>();
+	private OptimizedRoute routes = new OptimizedRoute();
 	private Navigation nav = new Navigation();
 	private boolean resumeHasRun = false;
 
@@ -54,13 +54,14 @@ public class RoutsActivity extends ActionBarActivity  {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_routs);
 		intService = new Intent(this, LocationService.class);
+		//Stop location listener
 		stopService(intService);
 		// get global variable
 		routes = ((MyApplication) this.getApplication()).getRoutes();
-		String[] values = new String[routes.size()];
+		String[] values = new String[routes.getOptimizeRoute().size()];
 		nav = ((MyApplication) this.getApplication()).getNavigation();
-		for(int i = 0; i< routes.size(); i++){
-			values[i] = (routes.get(i).toString());
+		for(int i = 0; i< routes.getOptimizeRoute().size(); i++){
+			values[i] = (routes.getOptimizeRoute().get(i).toString());
 		}
 		final ArrayList<String> list = new ArrayList<String>();
 		for (int i = 0; i < values.length; ++i) {
@@ -74,14 +75,14 @@ public class RoutsActivity extends ActionBarActivity  {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				intService.putExtra("endLatitude", routes.get(position).getLatitude());
-				intService.putExtra("endLongitude", routes.get(position).getLongitude());
+				intService.putExtra("endLatitude", routes.getOptimizeRoute().get(position).getLatitude());
+				intService.putExtra("endLongitude", routes.getOptimizeRoute().get(position).getLongitude());
 				intService.putExtra("routes", (Serializable)routes);  
 				intService.putExtra("navObj", (Serializable)nav ); 
+				//Start location listener
 				startService(intService);
-				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(GOOGLE_NAVIGATION + routes.get(position).getDestination()));
+				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(GOOGLE_NAVIGATION + routes.getOptimizeRoute().get(position).getDestination()));
 				startActivity(intent); 
-
 			}
 		});
 
@@ -129,15 +130,16 @@ public class RoutsActivity extends ActionBarActivity  {
 		}
 	}
 
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		intService.putExtra("endLatitude", routes.get(position).getLatitude());
-		intService.putExtra("endLongitude", routes.get(position).getLongitude());
-		intService.putExtra("routes", (Serializable)routes);  
-		intService.putExtra("navObj", (Serializable)nav ); 
-		startService(intService);
-		Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(GOOGLE_NAVIGATION + routes.get(position).getDestination()));
-		startActivity(intent);       
-	}
+//	protected void onListItemClick(ListView l, View v, int position, long id) {
+//		intService.putExtra("endLatitude", routes.get(position).getLatitude());
+//		intService.putExtra("endLongitude", routes.get(position).getLongitude());
+//		intService.putExtra("routes", (Serializable)routes);  
+//		intService.putExtra("navObj", (Serializable)nav ); 
+//		//Start location listener
+//		startService(intService);
+//		Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(GOOGLE_NAVIGATION + routes.get(position).getDestination()));
+//		startActivity(intent);       
+//	}
 
 	public void backClicked(View v){	
 		Intent i = new Intent(RoutsActivity.this, MainActivity.class);
@@ -166,10 +168,10 @@ public class RoutsActivity extends ActionBarActivity  {
 	public boolean removeStartAddress(){
 		nav = ((MyApplication) this.getApplication()).getNavigation();	
 		placesArray = ((MyApplication) this.getApplication()).getPlaces();
-		if(nav.getAddresses().contains(routes.get(0).getDestination())){
-			nav.addStartAdd(routes.get(0).getDestination());
-			nav.getAddresses().remove(routes.get(0).getDestination());
-			int loc = getAddressLocation(routes.get(0).getDestination());
+		if(nav.getAddresses().contains(routes.getOptimizeRoute().get(0).getDestination())){
+			nav.addStartAdd(routes.getOptimizeRoute().get(0).getDestination());
+			nav.getAddresses().remove(routes.getOptimizeRoute().get(0).getDestination());
+			int loc = getAddressLocation(routes.getOptimizeRoute().get(0).getDestination());
 			placesArray.remove(loc);
 			((MyApplication) this.getApplication()).setPlaces(placesArray);
 			return true;

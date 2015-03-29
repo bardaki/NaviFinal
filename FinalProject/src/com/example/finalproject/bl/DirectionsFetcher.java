@@ -24,6 +24,7 @@ import android.view.Gravity;
 import com.example.finalproject.activities.AddressesActivity;
 import com.example.finalproject.activities.RoutsActivity;
 import com.example.finalproject.classes.Navigation;
+import com.example.finalproject.classes.OptimizedRoute;
 import com.example.finalproject.classes.Route;
 import com.example.finalproject.custom.MyApplication;
 import com.google.android.gms.maps.model.LatLng;
@@ -44,7 +45,7 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 	private Navigation nav = new Navigation();
 	private Context context;
 	private final ProgressDialog ringProgressDialog;
-	private List<Route> optimizeRoute;
+	private OptimizedRoute optimizedRoute;
 	private boolean doInBg;
 
 	public DirectionsFetcher(Context context) {
@@ -102,8 +103,8 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 					doInBg = false;	
 				else{
 					String jsonn = EntityUtils.toString(httpResponse.getEntity());
-					TypeToken<List<Route>> token = new TypeToken<List<Route>>(){};
-					optimizeRoute = gson.fromJson(jsonn, token.getType());
+					TypeToken<OptimizedRoute> token = new TypeToken<OptimizedRoute>(){};
+					optimizedRoute = gson.fromJson(jsonn, token.getType());
 				}
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
@@ -126,7 +127,7 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 		((MyApplication) ((Activity) context).getApplication()).setDoInBg(doInBg);
 		if(doInBg){		
 			//set global variable
-			((MyApplication) ((Activity) context).getApplication()).setRoutes(optimizeRoute);
+			((MyApplication) ((Activity) context).getApplication()).setRoutes(optimizedRoute);
 			Intent i = new Intent(context, RoutsActivity.class);
 			i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);	
 			context.startActivity(i);
